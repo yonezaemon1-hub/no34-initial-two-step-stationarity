@@ -5,7 +5,9 @@
 **Type:** Unrefereed research preprint  
 **Rights:** All rights reserved (`LICENSE.txt`)  
 **Scholarly novelty and priority:** Not established; this repository makes no priority claim  
-**Contact:** yonezaemon1+research@gmail.com
+**Contact:** yonezaemon1+research@gmail.com  
+**Zenodo (v1.0):** [Published preprint](https://zenodo.org/records/23592417)  
+**Version DOI:** [10.5281/zenodo.23592417](https://doi.org/10.5281/zenodo.23592417)
 
 ## Main result
 
@@ -80,6 +82,6 @@ Compare the output of both programs with `census_parity.log` and `census_gray.lo
 
 The existence of the finite witness is directly checked. The exact minimality/classification claims require the provided exhaustive programs and inspection of their outputs. The prior-art survey is incomplete. **No scholarly priority, comprehensive novelty, or formal peer-review claim is made.** Do not cite this as a refereed paper.
 
-Reference: Ryutaro Yonezu (2026), *An Eight-Vertex Counterexample to Initial Two-Step Stationarity in Majority Dynamics*, preprint v1.0, 23 October 2026.
+Reference: Ryutaro Yonezu (2026), *An Eight-Vertex Counterexample to Initial Two-Step Stationarity in Majority Dynamics*, preprint v1.0, 23 October 2026. DOI: [10.5281/zenodo.23592417](https://doi.org/10.5281/zenodo.23592417).
 
 Research inquiries: yonezaemon1+research@gmail.com
