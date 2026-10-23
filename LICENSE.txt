@@ -1,0 +1,9 @@
+Copyright (c) 2026 Ryutaro Yonezu. All rights reserved.
+
+This public, unrefereed research preprint and its supporting source code and
+research evidence are provided for reading, examination, and independent
+verification. No express license to copy, modify, redistribute, commercialize,
+or create derivative works is granted. Rights and statutory exceptions under
+applicable law remain unaffected.
+
+Research inquiries: yonezaemon1+research@gmail.com

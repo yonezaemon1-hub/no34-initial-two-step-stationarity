@@ -1,0 +1,25 @@
+m=04 all_odd_graphs=105 witness_graphs=0 half_state_witnesses=0
+m=05 all_odd_graphs=840 witness_graphs=0 half_state_witnesses=0
+m=06 all_odd_graphs=3248 witness_graphs=0 half_state_witnesses=0
+m=07 all_odd_graphs=9248 witness_graphs=0 half_state_witnesses=0
+m=08 all_odd_graphs=23730 witness_graphs=0 half_state_witnesses=0
+m=09 all_odd_graphs=54040 witness_graphs=0 half_state_witnesses=0
+m=10 all_odd_graphs=103040 witness_graphs=0 half_state_witnesses=0
+m=11 all_odd_graphs=166656 witness_graphs=0 half_state_witnesses=0
+m=12 all_odd_graphs=236831 witness_graphs=0 half_state_witnesses=0
+m=13 all_odd_graphs=295120 witness_graphs=20160 half_state_witnesses=40320
+m=14 all_odd_graphs=315360 witness_graphs=0 half_state_witnesses=0
+m=15 all_odd_graphs=289856 witness_graphs=0 half_state_witnesses=0
+m=16 all_odd_graphs=235228 witness_graphs=0 half_state_witnesses=0
+m=17 all_odd_graphs=169008 witness_graphs=0 half_state_witnesses=0
+m=18 all_odd_graphs=103936 witness_graphs=0 half_state_witnesses=0
+m=19 all_odd_graphs=53760 witness_graphs=0 half_state_witnesses=0
+m=20 all_odd_graphs=24087 witness_graphs=0 half_state_witnesses=0
+m=21 all_odd_graphs=9320 witness_graphs=0 half_state_witnesses=0
+m=22 all_odd_graphs=2800 witness_graphs=0 half_state_witnesses=0
+m=23 all_odd_graphs=672 witness_graphs=0 half_state_witnesses=0
+m=24 all_odd_graphs=210 witness_graphs=0 half_state_witnesses=0
+m=25 all_odd_graphs=56 witness_graphs=0 half_state_witnesses=0
+m=28 all_odd_graphs=1 witness_graphs=0 half_state_witnesses=0
+total_graphs=2097152
+PASS: all odd-degree 8-vertex graphs; m<13 has no witness; m=13 has 20160 witness graphs and 40320 successful initial states modulo global sign.

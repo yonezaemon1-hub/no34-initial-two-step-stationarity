@@ -1,0 +1,33 @@
+FIRST_COUNTEREXAMPLE m=13 bits=39519 x=105 t=6
+v0: adj=62 degree=5
+v1: adj=37 degree=3
+v2: adj=155 degree=5
+v3: adj=21 degree=3
+v4: adj=13 degree=3
+v5: adj=131 degree=3
+v6: adj=128 degree=1
+v7: adj=100 degree=3
+FINISHED limit=13 seconds=2.790
+m=4 graphs=105 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=5 graphs=840 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=6 graphs=3248 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=7 graphs=9248 connected=5888 tested=5888 witness_states=0 witness_graphs=0
+m=8 graphs=23730 connected=18480 tested=18480 witness_states=0 witness_graphs=0
+m=9 graphs=54040 connected=47040 tested=47040 witness_states=0 witness_graphs=0
+m=10 graphs=103040 connected=98560 tested=98560 witness_states=0 witness_graphs=0
+m=11 graphs=166656 connected=164640 tested=164640 witness_states=0 witness_graphs=0
+m=12 graphs=236831 connected=235536 tested=235536 witness_states=0 witness_graphs=0
+m=13 graphs=295120 connected=294560 tested=294560 witness_states=40320 witness_graphs=20160
+m=14 graphs=315360 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=15 graphs=289856 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=16 graphs=235228 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=17 graphs=169008 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=18 graphs=103936 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=19 graphs=53760 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=20 graphs=24087 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=21 graphs=9320 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=22 graphs=2800 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=23 graphs=672 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=24 graphs=210 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=25 graphs=56 connected=0 tested=0 witness_states=0 witness_graphs=0
+m=28 graphs=1 connected=0 tested=0 witness_states=0 witness_graphs=0

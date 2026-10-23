@@ -1,0 +1,108 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,microtype}
+\usepackage[margin=27mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage[unicode,hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}{Remark}
+\title{\bfseries An Eight-Vertex Counterexample to Initial Two-Step Stationarity in Majority Dynamics}
+\author{Ryutaro Yonezu\\\small Yonezu Research Lab\\\small \href{mailto:yonezaemon1+research@gmail.com}{yonezaemon1+research@gmail.com}}
+\date{23 October 2026\\\small Version 1.0 --- unrefereed preprint}
+\begin{document}
+\maketitle
+\vspace{-1em}
+\begin{abstract}
+Benjamini, Zakharov and Zhukovskii ask whether, for every finite graph and every initial configuration of synchronous majority dynamics, some vertex satisfies $\xi_{t+2}(v)=\xi_t(v)$ for \emph{all} $t\geq0$. This is initial two-step \emph{stationarity}: in their terminology, both even-time $0$-stability and odd-time $1$-stability. We give a connected graph on eight vertices and thirteen edges, all of odd degree, and an explicit initial configuration for which no vertex has this property. A finite trace is a direct certificate. Exhaustive computations establish that eight vertices are necessary in the all-odd-degree model, that thirteen edges are necessary \emph{among eight-vertex graphs}, and that the counterexample graph--state pair is unique up to vertex relabelling and global sign reversal at $(n,m)=(8,13)$. These computational classifications are supported by two recorded C++ enumerations and a separately reported independent enumeration. No priority, comprehensive novelty, or journal peer-review claim is made.
+\end{abstract}
+\noindent\textbf{Keywords:} majority dynamics; finite graphs; stability; stationarity; exhaustive enumeration; counterexample.
+
+\section{Update rule and the precise question}
+Let $G=(V,E)$ be a finite, simple, undirected graph in which every vertex has odd degree, and let $\xi_t(v)\in\{-1,+1\}$. The synchronous strict-neighbour-majority rule is
+\begin{equation}\label{eq:rule}
+\xi_{t+1}(v)=\operatorname{sgn}\!\left(\sum_{u:\,uv\in E}\xi_t(u)\right).
+\end{equation}
+Odd degrees exclude ties. No self-vote is used. The problem posed in \cite[\S6, `Stabilisation time']{BZZ} asks whether
+\begin{equation}\label{eq:question}
+\forall G\ \forall \xi_0\ \exists v\in V(G)\ \forall t\geq0:\quad \xi_{t+2}(v)=\xi_t(v)
+\end{equation}
+holds. Here the source's conventions restrict discussion to odd degrees. Its \S2 distinguishes $0$-stable (the relation at all \emph{even} indices) and $1$-stable (at all \emph{odd} indices), and defines $0$-stationary as the conjunction of these properties. Equation~\eqref{eq:question} explicitly quantifies over both parities. We do \emph{not} address whether every process has at least one $0$-stable vertex.
+
+\section{Finite certificate}
+\begin{theorem}\label{thm:witness}
+There is a connected, eight-vertex, thirteen-edge simple graph of odd degree at every vertex, with an initial spin assignment for which no vertex is $0$-stationary.
+\end{theorem}
+\begin{proof}
+Let $V=\{0,1,\ldots,7\}$ and take the thirteen edges
+\begin{equation}\label{eq:edges}
+E=\{01,03,05,12,13,15,16,23,24,34,35,46,67\}.
+\end{equation}
+Its degree sequence in vertex order is $(3,5,3,5,3,3,3,1)$, so ties do not occur. Take $\xi_0=\texttt{+++---+-}$, listing spins in vertex order. Direct synchronous updates by~\eqref{eq:rule} yield:
+\begin{center}
+\begin{tabular}{@{}r l@{}}\toprule
+$t$ & $(\xi_t(0),\ldots,\xi_t(7))$ \\ \midrule
+0 & \texttt{+++---+-}\\
+1 & \texttt{-+-+++-+}\\
+2 & \texttt{+-++-++-}\\
+3 & \texttt{++-+++-+}\\
+4 & \texttt{++++-++-}\\
+5 & \texttt{++++++-+}\\
+6 & \texttt{+++++++-}\\
+7 & \texttt{++++++++}\\
+8 & \texttt{++++++++}\\\bottomrule
+\end{tabular}
+\end{center}
+For vertices $v=0,1,\dots,7$, the first $t\geq0$ for which $\xi_{t+2}(v)\ne\xi_t(v)$ is, respectively,
+\begin{equation}\label{eq:firstfailure}
+(1,0,3,0,4,0,5,6).
+\end{equation}
+Thus every vertex violates the required two-step equality at least once. The all-positive configuration at $t=7$ is fixed, so the finite trajectory suffices for an unrestricted-time certificate.
+\end{proof}
+The $0$-stable vertices of the witness are $\{0,2,6\}$, while the $1$-stable vertices are $\{1,3,4,5,7\}$. The intersection is empty. This parity distinction is essential: the graph refutes initial \emph{stationarity}, not the existence of an even-time $0$-stable vertex.
+
+\section{Computational minimality and classification}
+\begin{theorem}[Computer-assisted]\label{thm:classification}
+Among all-odd-degree graphs, the least vertex count permitting a counterexample to~\eqref{eq:question} is eight. Among eight-vertex graphs, the least number of edges is thirteen. At $(n,m)=(8,13)$ all successful graph--initial-state pairs form one equivalence class under relabelling of vertices and global reversal of every spin.
+\end{theorem}
+\begin{proof}[Exhaustive-verification argument]
+By the handshaking lemma, an all-odd-degree graph has even order. For even $n$, each labelled graph with all degrees odd is uniquely specified by the edges induced on vertices $0,\dots,n-2$. The $n-1$ incident edges to the last vertex are forced by parity; the last vertex has odd degree as well. Hence there are
+\begin{equation}
+2^{\binom{n-1}{2}}
+\end{equation}
+labelled all-odd-degree graphs of order $n$. For $n=2,4,6$ these counts are $1$, $8$, and $1024$; every starting state was tested without finding a counterexample.
+
+For $n=8$ there are $2^{21}=2{,}097{,}152$ labelled all-odd-degree graphs. Two C++20 programs supplied with this preprint exhaustively check the relevant graphs through thirteen edges. Since the global sign reversal commutes with~\eqref{eq:rule}, only $128$ starting states per graph are needed. Neither implementation finds a counterexample with fewer than thirteen edges. With thirteen edges, they each report $20{,}160$ successful labelled graphs and $40{,}320$ successful graph--state assignments modulo global sign reversal.
+
+For the graph of~\eqref{eq:edges}, checking its vertex permutations shows that its automorphism group has order two, generated by the transposition $(0\ 5)$. Its relabelling orbit has $8!/2=20{,}160$ members, already accounting for every successful labelled graph at thirteen edges. Exhausting the $256$ initial states of this graph gives exactly four successful states, whose bit masks are $71,102,153,184$. These four are one orbit under the graph automorphism and global sign reversal. This establishes the asserted classification within the exhaustively checked model and range.
+\end{proof}
+\begin{remark}
+Theorem~\ref{thm:classification} depends on the reproducible computation and provided logs, not a computer-free argument. The thirteen-edge bound applies to order eight only; no global minimum edge count over all graph orders is claimed.
+\end{remark}
+
+\section{Verification scope and reproducibility}
+The package includes \texttt{witness.json}, three small Python witness/parity/orbit checks, a separate Python enumeration for orders at most six, and two distinct C++20 enumerators for order eight. The C++ files are \texttt{verify\_exhaustive\_8\_parity.cpp} (parity reconstruction) and \texttt{verify\_exhaustive\_8\_gray.cpp} (Gray-code enumeration), accompanied by their recorded outputs. Both recorded enumerations agree at the boundary of thirteen edges.
+
+An external adversarial examiner independently reported enumerating all $2^{21}$ labelled odd-degree graphs on eight vertices and their configurations, obtaining matching counts without reusing the bundled C++ enumeration routines. The examiner did not report running those bundled C++ programs. The drafting assistant independently reran the bundled Python witness, parity, orbit, and $n\leq6$ checks; the extensive C++ sweeps were \emph{not rerun} during the editorial v0.4 revision. Executable procedures and file checksums accompany the publication. These are computational checks, not independent journal peer review.
+
+\section{Context and limitations}
+The classical Goles--Olivos theorem on finite symmetric threshold networks concerns \emph{eventual} period at most two~\cite{GO}. Eventual period two does not imply the existence of a vertex that satisfies the two-step relation from time zero. The question in~\cite[\S6]{BZZ} concerns the latter property, and the present counterexample is not a tree. Related results on majority dynamics are discussed in~\cite{BCT,GH,GS,MRW}. This reference check is not exhaustive and does not establish scholarly originality or priority.
+
+\subsection*{Publication statement}
+Unrefereed preprint, version 1.0, 23 October 2026. The finite witness is directly checkable, while the minimality and classification rely on exhaustively enumerated finite cases. No priority claim or claim of complete novelty is made. The source code and evidence are provided for audit; all rights reserved.
+
+\begin{thebibliography}{9}
+\bibitem{BZZ} I. Benjamini, G. Zakharov and M. Zhukovskii. \emph{Majority dynamics on finite trees}. Random Structures \& Algorithms, vol. 69 (2026), e70092. \href{https://doi.org/10.1002/rsa.70092}{doi:10.1002/rsa.70092}. \href{https://arxiv.org/abs/2507.04714}{arXiv:2507.04714}.
+\bibitem{BCT} I. Benjamini, S. Chan, R. O'Donnell, O. Tamuz and L. Tan. \emph{Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs}. Stochastic Processes and their Applications \textbf{126} (2016), 2719--2733. \href{https://doi.org/10.1016/j.spa.2016.02.015}{doi:10.1016/j.spa.2016.02.015}.
+\bibitem{GH} Y. Ginosar and R. Holzman. \emph{The majority action on infinite graphs: strings and puppets}. Discrete Mathematics \textbf{215} (2000), 59--71. \href{https://doi.org/10.1016/S0012-365X(99)00228-9}{doi:10.1016/S0012-365X(99)00228-9}.
+\bibitem{GS} G. Goel and A. Sah. \emph{Majority dynamics on sparse random graphs}. \href{https://arxiv.org/abs/2609.14957}{arXiv:2609.14957} (2026).
+\bibitem{GO} E. Goles and J. Olivos. \emph{Periodic behaviour of generalized threshold functions}. Discrete Mathematics \textbf{30} (1980), 187--189. \href{https://doi.org/10.1016/0012-365X(80)90121-1}{doi:10.1016/0012-365X(80)90121-1}.
+\bibitem{MRW} P. Montealegre and M. R\'ios-Wilson. \emph{The Two-Dimensional Majority Rule is P-Complete}. \href{https://arxiv.org/abs/2610.04311}{arXiv:2610.04311} (2026).
+\end{thebibliography}
+\vfill
+{\footnotesize \copyright{} 2026 Ryutaro Yonezu. All rights reserved.\\Research inquiries: \href{mailto:yonezaemon1+research@gmail.com}{yonezaemon1+research@gmail.com}.}
+\end{document}
